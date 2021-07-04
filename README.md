@@ -11,6 +11,8 @@
 
 4- `touch gitignore` (put inside it node_modules + .env)
 
+5- npm i nodemon
+
 ---
 
 ## BACKEND TO DO LIST :
