@@ -8,6 +8,7 @@ const cors = require("cors");
 // Require monogoose.
 // We are going to include mongoose inside models file.
 // Model is instance of mongoose.
+const mongoose = require("mongoose");
 
 require("dotenv").config();
 
@@ -21,6 +22,15 @@ const app = express();
 
 // Define the port.
 const PORT = process.env.PORT || 8081;
+
+// Connect to mongoose
+mongoose.connect("mongodb://localhost:27017/art", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+
+// 27017 => this is the port where mongo is working.
+
 // Define our middleware (use) :
 
 // - Enable cors.

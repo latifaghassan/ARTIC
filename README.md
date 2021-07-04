@@ -58,3 +58,15 @@
 4- Art Piece Credit Line.
 
 - Send back to the user when they request the endpoint `/art/` with the method `get` to recieve the mentioned information above.
+
+- Create a CRUD endpoints for our backend application that will do the following operations:
+
+1- POST endpoint to create a new favourite art item in our DB.
+
+2- GET endpoint to retrive our favourite pieces of art.
+
+3- DELETE endpoint to delete a favourite item from our DB
+
+4- PUT endpoint to update certain information about our favourtie item pieces.
+
+- Define a Schema models for out DATA that will be saved in our Mongo DB.
