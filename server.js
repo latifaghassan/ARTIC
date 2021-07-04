@@ -40,6 +40,18 @@ app.get("/", (req, res) => {
 // Get request from the art pieces from the API.
 
 app.get("/art", articController.getArtData);
+
+// CRUD endpoints
+
+// create a favourite art piece endpoint  (CREATE / POST)
+app.post("/art/favourite");
+// getting the favourite pieces of an art endpoint. (READ / GET)
+app.get("/art/favourite");
+// deleting a favourtite piece of art endpoint. (DELETE / DELETE)
+app.delete("/art/favourite");
+// updating a favourite pieces of art endpoint (UPDATE / PUT)
+app.put("/art/favourite");
+
 // test the server if its working
 app.listen(PORT, () => {
   console.log(`Server started on ${PORT}`);
