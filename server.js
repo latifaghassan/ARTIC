@@ -16,6 +16,10 @@ require("dotenv").config();
 // artic API controller
 
 const articController = require("./controller/artic.controller");
+
+// CRUD controllers
+
+const crud = require("./controller/artic.crud.contreller");
 // 2- Initialize the server packages.
 
 const app = express();
@@ -54,13 +58,15 @@ app.get("/art", articController.getArtData);
 // CRUD endpoints
 
 // create a favourite art piece endpoint  (CREATE / POST)
-app.post("/art/favourite");
+app.post("/art/favourite", crud.createFavourtieArtPiece);
 // getting the favourite pieces of an art endpoint. (READ / GET)
-app.get("/art/favourite");
+app.get("/art/favourite", crud.getFavourtieArtPiece);
 // deleting a favourtite piece of art endpoint. (DELETE / DELETE)
-app.delete("/art/favourite");
+app.delete("/art/favourite/:slug", crud.deleteFavourtieArtPiece);
 // updating a favourite pieces of art endpoint (UPDATE / PUT)
-app.put("/art/favourite");
+app.put("/art/favourite/:slug", crud.updateFavourtieArtPiece);
+
+// :slug => params, we are sending a params
 
 // test the server if its working
 app.listen(PORT, () => {
