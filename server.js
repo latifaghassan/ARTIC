@@ -14,7 +14,7 @@ require("dotenv").config();
 // require the controllers we are going to work with!
 // artic API controller
 
-const artic = require("./controller/artic.controller");
+const articController = require("./controller/artic.controller");
 // 2- Initialize the server packages.
 
 const app = express();
@@ -39,7 +39,7 @@ app.get("/", (req, res) => {
 
 // Get request from the art pieces from the API.
 
-app.get("/art", artic.getArtData);
+app.get("/art", articController.getArtData);
 // test the server if its working
 app.listen(PORT, () => {
   console.log(`Server started on ${PORT}`);
