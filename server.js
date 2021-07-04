@@ -3,7 +3,6 @@
 // Include require packages for our server.
 
 const express = require("express");
-// const superagent = require("superagent");
 const cors = require("cors");
 
 // Require monogoose.
@@ -12,6 +11,10 @@ const cors = require("cors");
 
 require("dotenv").config();
 
+// require the controllers we are going to work with!
+// artic API controller
+
+const artic = require("./controller/artic.controller");
 // 2- Initialize the server packages.
 
 const app = express();
@@ -34,6 +37,9 @@ app.get("/", (req, res) => {
   res.send("Server is working!");
 });
 
+// Get request from the art pieces from the API.
+
+app.get("/art", artic.getArtData);
 // test the server if its working
 app.listen(PORT, () => {
   console.log(`Server started on ${PORT}`);
