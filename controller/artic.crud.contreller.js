@@ -65,7 +65,10 @@ const deleteFavourtieArtPiece = async (req, res) => {
     if (error) {
       res.send(error);
     } else {
-      res.send(data);
+      // res.send(data);
+      artPiece.find({}, (error, data) => {
+        res.send(data);
+      });
     }
   });
 };
@@ -75,22 +78,32 @@ const deleteFavourtieArtPiece = async (req, res) => {
 // PUT controller for updating our data item in our DB
 const updateFavourtieArtPiece = async (req, res) => {
   // destructure the data from the request body
-  const { artist_name } = req.body;
 
   const slug = req.params.slug;
+
+  const { description } = req.body;
 
   artPiece.find({ slug: slug }, (error, data) => {
     if (error) {
       res.send(error);
     } else {
-      data[0].artist_name = artist_name;
+      data[0].description = description;
       // data[0].something = something;
 
       data[0].save();
-      res.send(data);
+      artPiece.find({}, (error, data) => {
+        res.send(data);
+      });
     }
   });
 };
+
+//   OTHER WAY THAN SLUG
+
+// delete =>  data.description.splice(dataIdx, 1);
+// update =>  data.description.splice(dataIdx, 1, { name: name, description: description, status: status  });
+// app.delete('/book/:book_idx', deleteBook);
+//app.put('/book/:book_idx', updateBook);
 
 //------------------------------------------------------------------
 
